@@ -1,0 +1,40 @@
+<link rel="import" href="../bower_components/polymer/polymer.html">
+<dom-module id="data-list">
+    <template>
+        <ul>
+            <template is="dom-repeat" items="{{fruits}}" filter="nameWithL">
+                <li>
+                    <span>{{item}}</span>
+                    <template is="dom-if" if="nameWithL(item)">(Name is started with L)</template>
+                </li>
+            </template>
+        </ul>
+
+        <ol>
+            <template is="dom-repeat" items="{{employee}}">
+                <li>{{item.name}} --  {{item.email}}</li>
+            </template>
+        </ol>
+    </template>
+
+    <script>
+        Polymer({
+            is: 'data-list',
+            properties: {
+                fruits: {
+                    type: Array,
+                    value: []
+                },
+                employee: {
+                    type: Array,
+                    value: [{"name": "Shyam", "email": "shyamjaiswal@gmail.com"},
+                        {"name": "Bob", "email": "bob32@gmail.com"},
+                        {"name": "Jai", "email": "jai87@gmail.com"}]
+                }
+            },
+            nameWithL : function (item){
+                return item.startsWith("L");
+            }
+        });
+    </script>
+</dom-module>

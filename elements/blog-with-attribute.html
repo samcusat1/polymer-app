@@ -1,0 +1,21 @@
+<dom-module id="blog-with-attribute">
+    <template>
+        <div class="blog-post">
+            <h2>Title: {{postTitle}}</h2>
+            <content select="post-content"></content>
+        </div>
+    </template>
+
+    <script>
+        Polymer({
+            is: 'blog-with-attribute',
+            properties:{
+                postTitle :{
+                    type:String,
+                    value:"This is the default vale"
+                }
+            }
+        });
+
+    </script>
+</dom-module>

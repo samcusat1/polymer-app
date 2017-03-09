@@ -1,0 +1,25 @@
+<link rel="import" href="../bower_components/polymer/polymer.html">
+<dom-module id="editable-item">
+    <template>
+        <h3> Non - Editable First Name</h3>
+        <span>My First Name is <b>{{fname}}</b></span> <br/>
+        <input type="text" value="{{fname}}">
+        <br/><br/><br/>
+
+        <h3>Editable Last Name</h3>
+        <span>My Last Name is <b>{{lname}}</b></span> <br/>
+        <input type="text" value="{{lname::input}}">
+        <br/>
+        <button on-click="reset">Reset</button>
+    </template>
+
+    <script>
+        Polymer({
+            is: 'editable-item',
+            reset : function(){
+                this.fname = "Shambhu";
+                this.lname = "Kumar";
+            }
+        });
+    </script>
+</dom-module>
